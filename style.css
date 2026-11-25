@@ -1,0 +1,102 @@
+html, body, #root { margin: 0; min-height: 100%; }
+body { background: #0f1b2d; }
+#imp-root { --ink:#14213d; --gold:#e0a526; font-family: 'Cairo','Segoe UI',Tahoma,system-ui,sans-serif; color: var(--ink); min-height: 100vh; background: radial-gradient(1200px 600px at 50% -10%, #23395d, #0f1b2d); }
+#imp-root * { box-sizing: border-box; }
+.imp-wrap { max-width: 520px; margin: 0 auto; padding: 10px 12px 28px; }
+.imp-head { display: flex; align-items: center; gap: 10px; padding: 8px 4px 12px; color: #f3e7c4; }
+.imp-logo { background: #f3e7c4; border-radius: 14px; padding: 4px; display: flex; }
+.imp-title b { display: block; font-size: 22px; line-height: 1.2; color: #ffd36a; }
+.imp-title span { font-size: 12px; opacity: .85; }
+.imp-foot { text-align: center; color: #9fb0c8; font-size: 12px; padding: 14px 0 0; }
+.imp-card { background: #fbf6e8; border-radius: 20px; padding: 16px; margin-bottom: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.28); border: 2px solid #e8dcb6; }
+.imp-card h2 { margin: 0 0 8px; font-size: 20px; }
+.imp-card h3 { margin: 14px 0 6px; font-size: 16px; }
+.imp-note { font-size: 14px; line-height: 1.7; color: #4a4a4a; margin: 6px 0 10px; }
+.imp-lesson { font-size: 13px; color: var(--c); font-weight: 700; margin: 2px 0 8px; }
+.imp-hero { display: flex; gap: 10px; }
+.imp-rank { flex: 2; background: #14213d; color: #fff; border-radius: 14px; padding: 10px 12px; }
+.imp-rank.r2 { flex: 1; background: #e0a526; color: #14213d; }
+.imp-rank small { display: block; font-size: 12px; opacity: .8; }
+.imp-rank b { font-size: 18px; }
+.imp-rank.big { text-align: center; margin: 12px 0; } .imp-rank.big b { font-size: 24px; display: block; color: #ffd36a; }
+.imp-mapbox { border-radius: 14px; overflow: hidden; border: 2px solid #c9b985; aspect-ratio: 16 / 9; background: #bcd9ea; margin: 8px 0; }
+.imp-mapbox.sm { aspect-ratio: 16 / 10; }
+.imp-mapbox.wide { aspect-ratio: auto; background: #bcd9ea; } .imp-scroll { overflow-x: auto; } .imp-scroll .map { width: 820px; height: auto; max-width: none; }
+.map { width: 100%; height: 100%; display: block; }
+.fog { animation: fogp 6s ease-in-out infinite alternate; }
+@keyframes fogp { from { fill-opacity: .78; } to { fill-opacity: .62; } }
+.pin-on { animation: pinpop .5s ease-out; transform-box: fill-box; transform-origin: center; }
+@keyframes pinpop { from { opacity: 0; transform: scale(.3); } to { opacity: 1; transform: scale(1); } }
+.imp-stages { display: grid; gap: 8px; }
+.imp-stage { display: flex; align-items: center; gap: 12px; text-align: right; font: inherit; width: 100%; background: var(--bg); border: 2px solid var(--c); border-radius: 16px; padding: 12px; cursor: pointer; color: var(--ink); min-height: 64px; }
+.imp-stage.lock { background: #ececec; border-color: #bbb; color: #777; cursor: default; }
+.imp-stage .ic { font-size: 30px; } .imp-stage .tx { flex: 1; } .imp-stage .tx b { display: block; font-size: 16px; } .imp-stage .tx small { color: #555; }
+.imp-stage .st b, .imp-stars b { color: #c8c8c8; font-size: 20px; } .imp-stage .st b.on, .imp-stars b.on { color: var(--gold); }
+.imp-stars { text-align: center; } .imp-stars b { font-size: 44px; margin: 0 4px; }
+.imp-btn { display: block; width: 100%; margin-top: 14px; padding: 15px; border: 0; border-radius: 14px; background: var(--c, #14213d); color: #fff; font: inherit; font-size: 18px; font-weight: 800; cursor: pointer; min-height: 52px; }
+.imp-link { display: block; width: 100%; margin-top: 8px; padding: 12px; background: none; border: 0; color: #555; font: inherit; text-decoration: underline; cursor: pointer; }
+.imp-chap { font-size: 22px; font-weight: 800; color: var(--c); margin-bottom: 6px; }
+.imp-story { font-size: 17px; line-height: 1.95; margin: 8px 0; }
+.imp-list { margin: 0; padding: 0 20px 0 0; line-height: 1.9; font-size: 15px; }
+.imp-pro { position: relative; min-height: 620px; display: flex; flex-direction: column; justify-content: space-between; color: #f3e7c4; padding: 24px 6px 10px; overflow: hidden; }
+.imp-pro-fog { position: absolute; inset: 0; background: radial-gradient(500px 300px at 20% 30%, rgba(190,200,210,.22), transparent), radial-gradient(500px 300px at 90% 70%, rgba(190,200,210,.18), transparent); animation: drift 9s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes drift { from { transform: translateX(-20px); } to { transform: translateX(20px); } }
+.imp-pro-top { text-align: center; position: relative; } .imp-pro-top svg { display: block; margin: 0 auto; } .imp-pro-top h1 { font-size: 34px; margin: 8px 0 4px; color: #ffd36a; } .imp-sub { margin: 0; font-size: 14px; opacity: .85; }
+.imp-pro-box { position: relative; background: rgba(0,0,0,.35); border: 1px solid rgba(243,231,196,.3); border-radius: 20px; padding: 18px; margin-top: 24px; }
+.imp-pro-box .imp-story { font-size: 19px; min-height: 150px; color: #fff; animation: fadein .8s; } .imp-pro-box .imp-btn { background: #e0a526; color: #14213d; } .imp-pro-box .imp-link { color: #cdbf95; }
+.imp-pro-n { font-size: 12px; color: #cdbf95; }
+@keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.imp-hud { display: flex; justify-content: space-between; align-items: center; background: #14213d; color: #fff; border-radius: 12px; padding: 8px 12px; font-weight: 700; margin-bottom: 8px; font-size: 15px; }
+.imp-doms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 6px 0 10px; }
+.imp-dom { text-align: center; background: var(--bg); border-radius: 10px; padding: 5px 2px; } .imp-dom span { font-size: 20px; } .imp-dom small { display: block; font-size: 10.5px; color: #444; min-height: 26px; line-height: 1.2; }
+.pips { display: flex; flex-direction: column-reverse; gap: 2px; padding: 0 12px; } .pips i { display: block; height: 5px; border-radius: 3px; background: #d6d0bd; } .pips i.on { background: var(--c); } .pips i.m { outline: 1px solid var(--gold); }
+.imp-tag { display: inline-block; font-size: 13px; background: var(--bg); color: var(--c); border: 1px solid var(--c); border-radius: 99px; padding: 3px 10px; font-weight: 700; }
+.imp-q h2 { font-size: 20px; line-height: 1.7; margin: 10px 0 12px; }
+.imp-opts { display: grid; gap: 8px; }
+.imp-opt { display: flex; align-items: center; gap: 10px; text-align: right; font: inherit; font-size: 16px; line-height: 1.55; width: 100%; padding: 12px; border-radius: 14px; border: 2px solid #d8cda6; background: #fff; color: var(--ink); cursor: pointer; min-height: 56px; }
+.imp-opt b { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--bg); color: var(--c); display: flex; align-items: center; justify-content: center; }
+.imp-opt:active { transform: scale(.98); }
+.imp-opt.right { background: #d9f4e1; border-color: #2e9d57; } .imp-opt.wrong { background: #fbdcdc; border-color: #d04545; } .imp-opt.dim { opacity: .55; }
+.imp-fb { margin-top: 12px; border-radius: 14px; padding: 12px; animation: fadein .4s; } .imp-fb.ok { background: #e6f7ec; } .imp-fb.no { background: #fdeaea; }
+.imp-fb p { margin: 6px 0; line-height: 1.8; font-size: 15px; } .gain { font-size: 14px; color: #1d6b3a; margin-top: 4px; }
+.imp-projs { display: grid; gap: 8px; margin: 10px 0; }
+.imp-proj { display: flex; align-items: center; gap: 10px; text-align: right; font: inherit; width: 100%; background: #fff; border: 2px solid var(--c); border-radius: 14px; padding: 10px; cursor: pointer; min-height: 60px; color: var(--ink); }
+.imp-proj:disabled { opacity: .5; cursor: default; border-color: #ccc; } .imp-proj.max { background: #e6f7ec; }
+.imp-proj .pi { font-size: 26px; } .imp-proj .pt { flex: 1; } .imp-proj .pt b { display: block; font-size: 15px; } .imp-proj small { color: #555; } .imp-proj .pc { font-weight: 800; color: var(--c); }
+.imp-hint { background: #fff3cf; border-radius: 10px; padding: 8px 10px; font-size: 14px; } .imp-hint.ok { background: #e6f7ec; }
+.imp-obj { display: grid; grid-template-columns: 1fr 70px 38px; gap: 8px; align-items: center; margin: 6px 0; font-size: 13.5px; } .imp-obj em { font-style: normal; font-weight: 800; text-align: left; }
+.imp-bar { height: 9px; background: #ddd5ba; border-radius: 9px; overflow: hidden; } .imp-bar i { display: block; height: 100%; background: linear-gradient(90deg, #e0a526, #2e9d57); }
+.imp-trs, .imp-achs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.imp-tr, .imp-ach { text-align: center; background: #efe8cf; border-radius: 12px; padding: 8px 4px; opacity: .6; } .imp-tr.on, .imp-ach.on { opacity: 1; background: #fff3cf; border: 1px solid var(--gold); }
+.imp-tr span, .imp-ach span { font-size: 28px; display: block; } .imp-tr small, .imp-ach small { display: block; font-size: 11px; color: #555; } .imp-ach b { font-size: 12.5px; }
+.imp-reward { display: flex; align-items: center; gap: 12px; background: #fff3cf; border: 2px solid var(--gold); border-radius: 14px; padding: 10px 14px; margin: 10px 0; animation: fadein .6s; } .imp-reward span { font-size: 38px; } .imp-reward small { display: block; color: #6b5d3a; } .imp-reward b { font-size: 17px; }
+.imp-new { background: #14213d; color: #ffd36a; border-radius: 12px; padding: 10px 12px; margin: 6px 0; animation: fadein .6s; }
+@media (min-width: 700px) { .imp-wrap { max-width: 640px; } }
+
+.imp-face { border-radius: 50%; object-fit: cover; object-position: center 25%; border: 3px solid #e0a526; background: #f3e7c4; display: block; flex: none; }
+.imp-logo { padding: 0 !important; border-radius: 50% !important; background: none !important; }
+.imp-pro-top .imp-face.big { margin: 0 auto; border-width: 4px; box-shadow: 0 0 0 6px rgba(224,165,38,.2), 0 8px 24px rgba(0,0,0,.5); }
+.imp-narr { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; }
+.imp-bub { background: #fff; border: 2px solid #e8dcb6; border-radius: 6px 16px 16px 16px; padding: 8px 12px; font-size: 16px; line-height: 1.85; flex: 1; min-width: 0; }
+.imp-bub b { display: block; font-size: 12px; color: #a8741a; margin-bottom: 2px; }
+
+.imp-input { width: 100%; font: inherit; font-size: 20px; text-align: center; padding: 12px; border-radius: 14px; border: 2px solid #e0a526; background: #fff8e1; color: #14213d; margin: 8px 0 12px; }
+.imp-input.shake, .imp-face.sad { animation: shake .4s; }
+.imp-mute { margin-inline-start: auto; background: rgba(255,255,255,.12); border: 0; color: #fff; font-size: 20px; border-radius: 12px; width: 40px; height: 40px; }
+.imp-rx { display: flex; align-items: center; gap: 10px; font-weight: 700; margin-bottom: 6px; }
+.imp-rx .imp-face { width: 40px; height: 40px; border-width: 2px; }
+.imp-face.happy { animation: hop .6s; }
+.imp-pro-top .imp-face.big { animation: float 4s ease-in-out infinite; }
+.imp-pro-fog { animation: drift 9s ease-in-out infinite alternate; }
+.imp-card { animation: fadein .45s; }
+.imp-wrap::before { content: ''; position: fixed; inset: 0; pointer-events: none; background: radial-gradient(500px 220px at 20% 10%, rgba(255,255,255,.07), transparent), radial-gradient(500px 260px at 85% 70%, rgba(224,165,38,.07), transparent); animation: drift 12s ease-in-out infinite alternate; z-index: 0; }
+.imp-wrap > * { position: relative; z-index: 1; }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+@keyframes hop { 0% { transform: scale(1); } 40% { transform: scale(1.25) rotate(-6deg); } 100% { transform: scale(1); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.imp-opt { transition: transform .12s; } .imp-opt:active { transform: scale(.97); }
+
+.imp-soon { display: flex; gap: 10px; align-items: flex-start; background: repeating-linear-gradient(135deg,#f1ebd8,#f1ebd8 12px,#ece4cb 12px,#ece4cb 24px); border-style: dashed; }
+.imp-soon > div:last-child { flex: 1; min-width: 0; }
+.imp-lockbig { font-size: 30px; animation: float 3s ease-in-out infinite; }
+.imp-badge { display: inline-block; background: #14213d; color: #ffd36a; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 700; }
